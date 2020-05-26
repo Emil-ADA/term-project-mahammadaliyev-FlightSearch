@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7fa15f07-9843-4cd4-875b-cc7fc1bcc49a" name="Default Changelist" comment="" />
+    <list default="true" id="7fa15f07-9843-4cd4-875b-cc7fc1bcc49a" name="Default Changelist" comment="Added">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FlightSearch/Graph$Edge.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FlightSearch/Graph$Edge.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FlightSearch/Graph$Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FlightSearch/Graph$Node.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FlightSearch/Graph$valueComparator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FlightSearch/Graph$valueComparator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FlightSearch/Graph.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FlightSearch/Graph.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FlightSearch/MyArrayList$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FlightSearch/MyArrayList$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FlightSearch/MyArrayList.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FlightSearch/MyArrayList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FlightSearch/Window.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FlightSearch/Window.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Window.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,13 +28,36 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Window.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="22" selection-start-line="22" selection-end-line="22" />
+            <state>
+              <caret column="21" selection-start-column="21" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Window.form">
+          <provider selected="true" editor-type-id="ui-designer" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Graph.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="73">
+              <caret line="365" column="17" selection-start-line="365" selection-start-column="17" selection-end-line="365" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/MyArrayList.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="87">
+              <caret line="150" selection-start-line="150" selection-end-line="150" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#2770#2771#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -46,6 +80,9 @@
       <find>hasNext</find>
     </findStrings>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -57,8 +94,8 @@
         <option value="$PROJECT_DIR$/src/PriorityQueue.java" />
         <option value="$PROJECT_DIR$/src/DijkstrasShortestPathAdjacencyList.java" />
         <option value="$PROJECT_DIR$/src/ArrayList.java" />
-        <option value="$PROJECT_DIR$/src/Window.java" />
         <option value="$PROJECT_DIR$/src/MyArrayList.java" />
+        <option value="$PROJECT_DIR$/src/Window.java" />
         <option value="$PROJECT_DIR$/src/Graph.java" />
       </list>
     </option>
@@ -68,12 +105,12 @@
     <option name="width" value="1440" />
     <option name="height" value="877" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -96,11 +133,12 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1590518920429" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1590531749605" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -171,27 +209,34 @@
       <option name="presentableId" value="Default" />
       <updated>1590231423901</updated>
     </task>
+    <task id="LOCAL-00001" summary="Minor changes">
+      <created>1590526544151</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1590526544152</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Designer" order="0" />
       <window_info id="UI Designer" order="1" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Favorites" order="3" sideWeight="0.50065017" side_tool="true" weight="0.25679544" />
       <window_info id="Image Layers" order="4" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" sideWeight="0.4993498" visible="true" weight="0.26037195" />
+      <window_info content_ui="combo" id="Project" order="5" sideWeight="0.4993498" visible="true" weight="0.2639485" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="0" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="2" weight="0.32769832" />
-      <window_info anchor="bottom" id="Version Control" order="3" />
+      <window_info anchor="bottom" id="Version Control" order="3" weight="0.32899868" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Find" order="5" />
-      <window_info anchor="bottom" id="Run" order="6" weight="0.18985696" />
-      <window_info anchor="bottom" id="Debug" order="7" weight="0.54746425" />
+      <window_info active="true" anchor="bottom" id="Run" order="6" visible="true" weight="0.29778934" />
+      <window_info anchor="bottom" id="Debug" order="7" weight="0.5812744" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="10" />
@@ -205,6 +250,22 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="7" weight="0.25" />
       <window_info anchor="right" id="Coverage" order="8" side_tool="true" weight="0.3297568" />
     </layout>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Minor changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Minor changes" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Graph.java</url>
+          <line>293</line>
+          <properties />
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/src.zip!/java/util/Stack.java">
@@ -225,25 +286,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/PriorityQueue.java" />
-    <entry file="file://$PROJECT_DIR$/src/DijkstrasShortestPathAdjacencyList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1548">
-          <caret line="93" column="32" selection-start-line="93" selection-start-column="32" selection-end-line="93" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DijkstrasShortestPathAdjacencyList.java" />
     <entry file="file://$PROJECT_DIR$/src/MyStackWithLL.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-720">
           <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Window.form">
-      <provider selected="true" editor-type-id="ui-designer" />
     </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/src.zip!/java/util/Iterator.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -252,10 +301,11 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/ListInterface.java" />
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/src.zip!/java/util/ArrayList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="811">
-          <caret line="860" lean-forward="true" selection-start-line="860" selection-end-line="860" />
+        <state relative-caret-position="-21459">
+          <caret line="192" column="23" selection-start-line="192" selection-start-column="23" selection-end-line="192" selection-end-column="23" />
           <folding>
             <element signature="e#0#54151#0" expanded="true" />
             <element signature="imports" expanded="true" />
@@ -263,45 +313,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Window.form">
+      <provider selected="true" editor-type-id="ui-designer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Window.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="21" selection-start-column="21" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/MyArrayList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="192" selection-start-line="192" selection-end-line="192" />
+        <state relative-caret-position="87">
+          <caret line="150" selection-start-line="150" selection-end-line="150" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2878#2879#0" expanded="true" />
-            <element signature="e#2905#2906#0" expanded="true" />
-            <element signature="e#2951#2952#0" expanded="true" />
-            <element signature="e#2983#2984#0" expanded="true" />
-            <element signature="e#3871#3872#0" expanded="true" />
-            <element signature="e#3971#3972#0" expanded="true" />
-            <element signature="e#4027#4028#0" expanded="true" />
-            <element signature="e#4091#4092#0" expanded="true" />
+            <element signature="e#2770#2771#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Graph.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="275" lean-forward="true" selection-start-line="275" selection-end-line="275" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ListInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Window.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="73">
+          <caret line="365" column="17" selection-start-line="365" selection-start-column="17" selection-end-line="365" selection-end-column="17" />
         </state>
       </provider>
     </entry>

@@ -1,5 +1,6 @@
 import java.util.*;
 
+
 public class Graph {
 
     class Edge {
@@ -41,8 +42,9 @@ public class Graph {
     int[] previousCity;
     double normCost = 0;
     double normTime = 0;
-    MyArrayList<Double> normCostList;
-    MyArrayList<Double> normTimeList;
+    MyArrayList<Double> normCostList = new MyArrayList<>();
+    MyArrayList<Double> normTimeList = new MyArrayList<>();
+    MyArrayList<String> optimizedPath = new MyArrayList<>();
 
 
 
@@ -91,6 +93,7 @@ public class Graph {
             normTimeList.add(normTime);
             normCost = 0;
             normTime = 0;
+            optimizedPath.add(Arrays.toString(localPathList.toArray()));
             return;
 
         }
@@ -220,53 +223,6 @@ public class Graph {
 
     }
 
-    public double dijakstraRank(int source, int destination) {
-
-        boolean[] isVisited = new boolean[vertices];
-        finVal = new double[vertices];
-
-        for(int i = 0; i < finVal.length; i++)
-            finVal[i] = Double.POSITIVE_INFINITY;
-
-        finVal[source] = 0;
-        previousCity = new int[vertices];
-        for(int i = 0; i < previousCity.length; i++)
-            previousCity[i] = -1;
-
-        PriorityQueue<Node> pq = new PriorityQueue<>(2 * vertices, new valueComparator());
-        pq.add(new Node(source, 0));
-
-        while (!pq.isEmpty()) {
-
-            Node node = pq.poll();
-            isVisited[node.id] = true;
-
-            if(finVal[node.id] < node.value) continue;
-
-            for (Edge edge : graph.get(node.id)) {
-
-                if(isVisited[edge.to]) continue;
-
-                double newDist = finVal[edge.from] + edge.rank;
-
-                if(newDist < finVal[edge.to]) {
-
-                    finVal[edge.to] = newDist;
-                    previousCity[edge.to] = edge.from;
-                    pq.add(new Node(edge.to, finVal[edge.to]));
-
-                }
-
-            }
-
-            if (node.id == destination) return finVal[destination];
-
-        }
-
-        return Double.POSITIVE_INFINITY;
-
-    }
-
     public MyArrayList<String> dijkstraPathForDist(int source, int destination) {
 
         if (source < 0 || source >= vertices) throw new IllegalArgumentException("Invalid input");
@@ -305,25 +261,78 @@ public class Graph {
 
     }
 
-    public MyArrayList<String> dijkstraPathForRank(int source, int destination) {
+    public String findBestFlight() {
 
-        if (source < 0 || source >= vertices) throw new IllegalArgumentException("Invalid input");
-        if (destination < 0 || destination >= vertices) throw new IllegalArgumentException("Invalid input");
+        MyArrayList<Double> optimizedVal = new MyArrayList<>();
 
-        MyArrayList<String> path = new MyArrayList<>(vertices);
-        double rank = dijakstraRank(source, destination);
+        double minCost = findMin(normCostList);
+        double maxCost = findMax(normCostList);
+        double rangeCost = maxCost - minCost;
 
-        if(rank == Double.POSITIVE_INFINITY) return path;
+        double minTime = findMin(normTimeList);
+        double maxTime = findMax(normTimeList);
+        double rangeTime = maxTime - minTime;
 
-        for(int i = destination; i != -1; i = previousCity[i])
-            path.add(graph.get(i).get(0).cityFrom);
+        for(int i = 0; i < normCostList.size(); i++) {
 
-        path = path.reverseArrayList();
+            normCostList.set(i, (normCostList.get(i)-minCost)/rangeCost);
 
-        return path;
+        }
+
+        for(int i = 0; i < normTimeList.size(); i++) {
+
+            normTimeList.set(i, (normTimeList.get(i)-minTime)/rangeTime);
+
+        }
+
+        for (int i = 0; i < normCostList.size(); i++) {
+
+            optimizedVal.set(i, normCostList.get(i) + normTimeList.get(i));
+
+        }
+
+        double optimalFlightRank = findMin(optimizedVal);
+        int indexOfFlight=0;
+
+        for(int i = 0; i < normTimeList.size(); i++) {
+
+            if(optimalFlightRank == optimizedVal.get(i))
+                indexOfFlight = i;
+
+        }
+
+        return optimizedPath.get(indexOfFlight);
+    }
+
+    public double findMin (MyArrayList<Double> list) {
+
+        double min = Double.POSITIVE_INFINITY;
+
+        for(int i = 0; i < normTimeList.size(); i++) {
+
+            if(list.get(i) < min)
+                min = list.get(i);
+
+        }
+
+        return min;
 
     }
 
+    public double findMax (MyArrayList<Double> list) {
+
+        double max = Double.NEGATIVE_INFINITY;
+
+        for(int i = 0; i < list.size(); i++) {
+
+            if(list.get(i) > max)
+                max = list.get(i);
+
+        }
+
+        return max;
+
+    }
 
     public static void main(String[] args) {
 
@@ -345,22 +354,6 @@ public class Graph {
         g.addEdge(1, "Moscow", 4, "Saint Petersburg", 50, 85);
 
         /*
-        g.addEdge(0, "Baku", 1, "Moscow", 100, 33);
-        g.addEdge(1, "Moscow", 0, "Baku", 100, 19);
-        g.addEdge(0, "Baku", 2, "Berlin", 400, 18);
-        g.addEdge(2, "Berlin", 0, "Baku", 400, 45);
-        g.addEdge(2, "Berlin", 1, "Moscow", 200, 95);
-        g.addEdge(1, "Moscow", 2, "Berlin", 200, 54);
-        g.addEdge(3, "London", 2, "Berlin", 150, 83);
-        g.addEdge(2, "Berlin", 3, "London", 150, 34);
-        g.addEdge(4, "Saint Petersburg", 2, "Berlin", 500, 11);
-        g.addEdge(2, "Berlin", 4, "Saint Petersburg", 500, 57);
-        g.addEdge(4, "Saint Petersburg", 3, "London", 300, 77);
-        g.addEdge(3, "London", 4, "Saint Petersburg", 300, 13);
-        g.addEdge(4, "Saint Petersburg", 1, "Moscow", 50, 11);
-        g.addEdge(1, "Moscow", 4, "Saint Petersburg", 50, 44);
-*/
-        /*
         Baku 0
         Moscow 1
         Berlin 2
@@ -370,22 +363,21 @@ public class Graph {
 
 
         int s = 4;
-
         int d = 2;
 
         System.out.println("Following are all different flights from "+g.graph.get(s).get(0).cityFrom+" to "+g.graph.get(d).get(0).cityFrom);
         g.printAllPaths(s, d);
         System.out.println();
 
-        System.out.println("Cheapest flight is: " + g.dijkstraPathForDist(s,d));
+        System.out.println("The cheapest flight is: " + g.dijkstraPathForDist(s,d));
         System.out.println("Cost: " + g.dijakstraDistance(s, d));
         System.out.println();
 
-        System.out.println("Fastest flight is: " + g.dijkstraPathForTime(s,d));
+        System.out.println("The fastest flight is: " + g.dijkstraPathForTime(s,d));
         System.out.println("Time in min: " + g.dijakstraTime(s, d));
         System.out.println();
 
-        System.out.println("Best flight is: " + g.dijkstraPathForRank(s,d));
+        System.out.println("The best flight is: " + g.findBestFlight());
         System.out.println();
 
 
