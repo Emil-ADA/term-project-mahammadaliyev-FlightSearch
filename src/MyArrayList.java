@@ -1,5 +1,4 @@
 import java.util.Iterator;
-import java.util.function.Consumer;
 
 public class MyArrayList<T> implements Iterable<T> {
 
@@ -156,17 +155,23 @@ public class MyArrayList<T> implements Iterable<T> {
         return size == 0;
     }
 
+    @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        Object[] ob = this.toArray();
-        int i;
-        for (i = 0; i < ob.length - 1; i++) {
-            sb.append(ob[i]);
-            sb.append(" ");
-        }
-        sb.append(ob[i]);
 
-        return sb.toString();
+        StringBuilder str = new StringBuilder();
+
+        for (T anEntry : data) {
+            if (anEntry != null) {
+
+                str.append(anEntry);
+                str.append(", ");
+
+            }
+
+        }
+
+        return "[" + str.substring(0, str.length() - 2) + "]";
+
     }
 
     public void increaseSize() {

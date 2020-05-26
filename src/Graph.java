@@ -1,7 +1,5 @@
 import java.util.*;
 
-//TO-DO add, get, toString, reverse for ArrayList
-
 public class Graph {
 
     class Edge {
@@ -41,6 +39,10 @@ public class Graph {
     private MyArrayList<MyArrayList<Edge>> graph;
     double[] finVal;
     int[] previousCity;
+    double normCost = 0;
+    double normTime = 0;
+    MyArrayList<Double> normCostList;
+    MyArrayList<Double> normTimeList;
 
 
 
@@ -77,32 +79,38 @@ public class Graph {
 
     }
 
-    private void printAllPathsUtility(int u, int d,
+    private void printAllPathsUtility(int source, int destination,
                                    boolean[] isVisited,
                                   MyStackWithLL<String> localPathList) {
 
-        if (u == d) {
+        if (source == destination) {
 
             System.out.println(Arrays.toString(localPathList.toArray()));
-            isVisited[u]= false;
+            isVisited[source]= false;
+            normCostList.add(normCost);
+            normTimeList.add(normTime);
+            normCost = 0;
+            normTime = 0;
             return;
 
         }
 
-        for (Edge i : graph.get(u)) {
+        for (Edge i : graph.get(source)) {
 
             if (!(isVisited[i.from] || isVisited[i.to])) {
 
-                isVisited[u] = true;
+                isVisited[source] = true;
 
                 localPathList.push(i.cityTo);
-                printAllPathsUtility(i.to, d, isVisited, localPathList);
+                normCost += i.cost;
+                normTime += i.time;
+                printAllPathsUtility(i.to, destination, isVisited, localPathList);
 
                 localPathList.pop();
 
             }
 
-            isVisited[u] = false;
+            isVisited[source] = false;
 
         }
 
@@ -259,12 +267,12 @@ public class Graph {
 
     }
 
-    public ArrayList<String> dijkstraPathForDist(int source, int destination) {
+    public MyArrayList<String> dijkstraPathForDist(int source, int destination) {
 
         if (source < 0 || source >= vertices) throw new IllegalArgumentException("Invalid input");
         if (destination < 0 || destination >= vertices) throw new IllegalArgumentException("Invalid input");
 
-        ArrayList<String> path = new ArrayList<>(vertices);
+        MyArrayList<String> path = new MyArrayList<>(vertices);
         double distance = dijakstraDistance(source, destination);
 
         if(distance == Double.POSITIVE_INFINITY) return path;
@@ -272,20 +280,18 @@ public class Graph {
         for(int i = destination; i != -1; i = previousCity[i])
             path.add(graph.get(i).get(0).cityFrom);
 
-        Collections.reverse(path);
-
-//        path.reverseArrayList();
+        path = path.reverseArrayList();
 
         return path;
 
     }
 
-    public ArrayList<String> dijkstraPathForTime(int source, int destination) {
+    public MyArrayList<String> dijkstraPathForTime(int source, int destination) {
 
         if (source < 0 || source >= vertices) throw new IllegalArgumentException("Invalid input");
         if (destination < 0 || destination >= vertices) throw new IllegalArgumentException("Invalid input");
 
-        ArrayList<String> path = new ArrayList<>(vertices);
+        MyArrayList<String> path = new MyArrayList<>(vertices);
         double time = dijakstraTime(source, destination);
 
         if(time == Double.POSITIVE_INFINITY) return path;
@@ -293,20 +299,18 @@ public class Graph {
         for(int i = destination; i != -1; i = previousCity[i])
             path.add(graph.get(i).get(0).cityFrom);
 
-        Collections.reverse(path);
-
-//        path.reverseArrayList(path);
+        path = path.reverseArrayList();
 
         return path;
 
     }
 
-    public ArrayList<String> dijkstraPathForRank(int source, int destination) {
+    public MyArrayList<String> dijkstraPathForRank(int source, int destination) {
 
         if (source < 0 || source >= vertices) throw new IllegalArgumentException("Invalid input");
         if (destination < 0 || destination >= vertices) throw new IllegalArgumentException("Invalid input");
 
-        ArrayList<String> path = new ArrayList<>(vertices);
+        MyArrayList<String> path = new MyArrayList<>(vertices);
         double rank = dijakstraRank(source, destination);
 
         if(rank == Double.POSITIVE_INFINITY) return path;
@@ -314,11 +318,12 @@ public class Graph {
         for(int i = destination; i != -1; i = previousCity[i])
             path.add(graph.get(i).get(0).cityFrom);
 
-        Collections.reverse(path);
+        path = path.reverseArrayList();
 
         return path;
 
     }
+
 
     public static void main(String[] args) {
 
