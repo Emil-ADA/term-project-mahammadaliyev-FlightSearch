@@ -36,8 +36,8 @@ public class Graph {
         }
     }
 
-    private int vertices;
-    private MyArrayList<MyArrayList<Edge>> graph;
+    int vertices;
+    MyArrayList<MyArrayList<Edge>> graph;
     double[] finVal;
     int[] previousCity;
     double normCost = 0;
@@ -131,8 +131,8 @@ public class Graph {
 
     public double dijakstraDistance(int source, int destination) {
 
-        boolean[] isVisited = new boolean[vertices];
-        finVal = new double[vertices];
+        boolean[] isVisited = new boolean[vertices]; //array for tracking which nodes have already been visited
+        finVal = new double[vertices]; //array of the minimum distance to each node
 
         for(int i = 0; i < finVal.length; i++)
             finVal[i] = Double.POSITIVE_INFINITY;
@@ -168,6 +168,10 @@ public class Graph {
 
             }
 
+            /*boost of dijasktra
+            once visited every node embracing the end node
+            we can conclude that there will not be any better path
+             */
             if (node.id == destination) return finVal[destination];
 
         }
@@ -179,7 +183,7 @@ public class Graph {
     public double dijakstraTime(int source, int destination) {
 
         boolean[] isVisited = new boolean[vertices];
-        finVal = new double[vertices];
+        finVal = new double[vertices]; //array of the minimum time to each node
 
         for(int i = 0; i < finVal.length; i++)
             finVal[i] = Double.POSITIVE_INFINITY;
@@ -273,24 +277,27 @@ public class Graph {
         double maxTime = findMax(normTimeList);
         double rangeTime = maxTime - minTime;
 
+        //linear mapping costs to the same range
         for(int i = 0; i < normCostList.size(); i++) {
 
             normCostList.set(i, (normCostList.get(i)-minCost)/rangeCost);
 
         }
-
+        //linear mapping time to the same range
         for(int i = 0; i < normTimeList.size(); i++) {
 
             normTimeList.set(i, (normTimeList.get(i)-minTime)/rangeTime);
 
         }
 
+        //summing up both lin. cost and time to find the most optimal/best flight
         for (int i = 0; i < normCostList.size(); i++) {
 
             optimizedVal.set(i, normCostList.get(i) + normTimeList.get(i));
 
         }
 
+        //flight with minimum optimization value is the best
         double optimalFlightRank = findMin(optimizedVal);
         int indexOfFlight=0;
 
